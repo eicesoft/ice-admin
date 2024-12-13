@@ -1,7 +1,15 @@
 <template>
-  <div class="layout">
+  <div class="layout" :style="styleVar">
     <MainSlide />
-    <div class="layout-body">
+    <MainSlideChild v-if="!store.isCollapse" />
+    <div
+      class="layout-body"
+      :style="{
+        width: !store.isCollapse
+          ? 'calc(100% - var(--slide-width) - var(--slide-child-width))'
+          : 'calc(100% - var(--slide-width))',
+      }"
+    >
       <MainHeader />
       <MainTabbar />
       <div class="layout-container">
@@ -18,7 +26,15 @@
   import MainHeader from './components/MainHeader.vue'
   import MainSlide from './components/MainSlide.vue'
   import MainTabbar from './components/MainTabbar.vue'
+  import MainSlideChild from './components/MainSlideChild.vue'
   import MainRouter from './components/MainRouter.vue'
+  import { useLayoutStore } from '@/stores/layout'
+
+  const store = useLayoutStore()
+  const styleVar = ref({
+    '--slide-width': '68px',
+    '--slide-child-width': '240px',
+  })
 </script>
 
 <style lang="scss" scoped>
@@ -26,7 +42,6 @@
     display: flex;
     height: 100%;
     &-body {
-      width: calc(100% - $slide-width);
       display: flex;
       flex-direction: column;
     }

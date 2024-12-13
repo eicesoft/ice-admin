@@ -1,6 +1,9 @@
 <script setup lang="ts">
   import { DArrowLeft, FullScreen, Refresh, ArrowDown } from '@element-plus/icons-vue'
   import { useFullscreen } from '@vueuse/core'
+  import { useLayoutStore } from '@/stores/layout'
+
+  const store = useLayoutStore()
   const $pub = inject('$pub')
   const state = reactive({
     circleUrl: 'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png',
@@ -22,12 +25,20 @@
 <template>
   <div class="header">
     <div class="header-left">
-      <el-icon><DArrowLeft /></el-icon>
+      <el-icon
+        :style="{ transform: !store.isCollapse ? 'rotate(0deg)' : 'rotate(180deg)' }"
+        :class="{ rotate: store.isCollapse, rotate180: !store.isCollapse }"
+        @click="store.collapse"
+      >
+        <DArrowLeft />
+      </el-icon>
+
       <el-breadcrumb separator=">">
         <el-breadcrumb-item>消息中心</el-breadcrumb-item>
         <el-breadcrumb-item>消息列表</el-breadcrumb-item>
       </el-breadcrumb>
-
+    </div>
+    <div>
       <nav>
         <RouterLink to="/">home</RouterLink>
         <RouterLink to="/issues">issues</RouterLink>
@@ -40,14 +51,14 @@
       <el-icon @click="handleRefresh" :size="20" color="#282c34">
         <Refresh />
       </el-icon>
-      <el-avatar :size="32" :src="circleUrl" />
+      <el-avatar :size="34" :src="circleUrl" />
       <el-dropdown>
-        <span>
+        <div class="dropdown">
           管理员
           <el-icon class="el-icon--right">
             <arrow-down />
           </el-icon>
-        </span>
+        </div>
         <template #dropdown>
           <el-dropdown-menu>
             <el-dropdown-item>Action 1</el-dropdown-item>
@@ -66,11 +77,35 @@
   :deep(.el-icon) {
     cursor: pointer;
     &:hover {
-      color: #dd2323;
+      color: #a53030;
+    }
+  }
+  .rotate {
+    animation: rotate 0.5s ease-in-out;
+  }
+  .rotate180 {
+    animation: rotate180 0.5s ease-in-out;
+  }
+  @keyframes rotate180 {
+    from {
+      transform: rotate(180deg);
+    }
+    to {
+      transform: rotate(0deg);
+    }
+  }
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(180deg);
     }
   }
   .header {
     height: $header-height;
+    max-height: $header-height;
+    min-height: $header-height;
     background-color: #f8f8f8;
     display: flex;
     align-items: center;
@@ -80,12 +115,21 @@
     padding: 0 10px;
     &-left {
       display: flex;
+      align-items: center;
       gap: 12px;
+      min-width: 140px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
     &-right {
       display: flex;
       gap: 12px;
       align-items: center;
+      .dropdown {
+        display: flex;
+        cursor: pointer;
+      }
     }
     nav {
       display: flex;

@@ -15,7 +15,7 @@
     flex-direction: column;
     overflow: hidden;
     height: 100%;
-    width: $slide-width;
+    width: var(--slide-width);
     background-color: #282c34;
     user-select: none;
     .logo {
