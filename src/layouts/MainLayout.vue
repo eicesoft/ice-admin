@@ -15,7 +15,7 @@
       <div class="layout-container">
         <div class="layout-container-body">
           <MainRouter />
-          <el-backtop target=".layout-container-body" :right="40" :bottom="40" />
+          <el-backtop target=".layout-container" :right="40" :bottom="40" />
         </div>
       </div>
     </div>
@@ -51,11 +51,12 @@
       display: flex;
       flex-direction: column;
       height: calc(100% - $tabbar-height - $header-height - $body-padding * 2);
+      overflow: auto;
+
       &-body {
         background-color: #fff;
         border-radius: 6px;
         flex-grow: 1;
-        overflow: auto;
         padding: 14px;
         box-shadow: 0 2px 4px rgba(20, 20, 20, 0.2);
       }
