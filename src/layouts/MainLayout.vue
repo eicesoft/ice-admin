@@ -23,11 +23,11 @@
 </template>
 
 <script setup lang="ts">
-  import MainHeader from './components/MainHeader.vue'
-  import MainSlide from './components/MainSlide.vue'
-  import MainTabbar from './components/MainTabbar.vue'
-  import MainSlideChild from './components/MainSlideChild.vue'
-  import MainRouter from './components/MainRouter.vue'
+  // import MainHeader from './components/MainHeader.vue'
+  // import MainSlide from './components/MainSlide.vue'
+  // import MainTabbar from './components/MainTabbar.vue'
+  // import MainSlideChild from './components/MainSlideChild.vue'
+  // import MainRouter from './components/MainRouter.vue'
   import { useLayoutStore } from '@/stores/layout'
 
   const store = useLayoutStore()
@@ -57,7 +57,7 @@
         flex-grow: 1;
         overflow: auto;
         padding: 14px;
-        box-shadow: 0 2px 8px rgba(20, 20, 20, 0.3);
+        box-shadow: 0 2px 4px rgba(20, 20, 20, 0.2);
       }
     }
   }

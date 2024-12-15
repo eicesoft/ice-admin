@@ -22,6 +22,11 @@ declare module 'vue' {
     ElTable: typeof import('element-plus/es')['ElTable']
     ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
     HelloWorld: typeof import('./components/HelloWorld.vue')['default']
+    MainHeader: typeof import('./layouts/components/MainHeader.vue')['default']
+    MainRouter: typeof import('./layouts/components/MainRouter.vue')['default']
+    MainSlide: typeof import('./layouts/components/MainSlide.vue')['default']
+    MainSlideChild: typeof import('./layouts/components/MainSlideChild.vue')['default']
+    MainTabbar: typeof import('./layouts/components/MainTabbar.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

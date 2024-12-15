@@ -27,11 +27,10 @@ export default defineConfig({
       dts: path.resolve(pathSrc, 'auto-imports.d.ts'),
     }),
     Components({
+      dirs: ["src/components", "src/layouts/components"],
       resolvers: [
-        // Auto register icon components
         // 自动注册图标组件
         IconsResolver({}),
-        // Auto register Element Plus components
         // 自动导入 Element Plus 组件
         ElementPlusResolver(),
       ],

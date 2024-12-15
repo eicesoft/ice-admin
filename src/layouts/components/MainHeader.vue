@@ -81,10 +81,10 @@
     }
   }
   .rotate {
-    animation: rotate 0.5s ease-in-out;
+    animation: rotate 0.3s linear;
   }
   .rotate180 {
-    animation: rotate180 0.5s ease-in-out;
+    animation: rotate180 0.3s linear;
   }
   @keyframes rotate180 {
     from {
