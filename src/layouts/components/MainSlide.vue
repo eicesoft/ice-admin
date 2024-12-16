@@ -1,3 +1,8 @@
+<script setup lang="ts">
+  // import { useMenuStore } from '@/stores/menus'
+  // const menuStore = useMenuStore()
+</script>
+
 <template>
   <div class="slide">
     <div class="logo">Logo</div>
