@@ -29,10 +29,10 @@
   // import MainSlideChild from './components/MainSlideChild.vue'
   // import MainRouter from './components/MainRouter.vue'
   import { useLayoutStore } from '@/stores/layout'
-  import { useMenuStore } from '@/stores/menus'
-  const menuStore = useMenuStore()
+  // import { useMenuStore } from '@/stores/menus'
+  // const menuStore = useMenuStore()
   const store = useLayoutStore()
-  menuStore.init()
+  // menuStore.init()
   const styleVar = ref({
     '--slide-width': '68px',
     '--slide-child-width': '240px',
