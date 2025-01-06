@@ -1,15 +1,25 @@
 {
-  "extends": "@vue/tsconfig/tsconfig.web.json",
   "compilerOptions": {
     "baseUrl": ".",
-    "types": ["vite/client", "element-plus/global", "unplugin-icons/types/vue"],
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "jsx": "preserve",
+    "types": ["element-plus/global", "unplugin-icons/types/vue"],
     "paths": {
       "@/*": ["src/*"]
     },
+    "lib": [
+      "ESNext",
+      "DOM",
+      "DOM.Iterable",
+    ],
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "noImplicitThis": true,
+    "strict": true,
+    "isolatedModules": true,
   },
-  "include": ["src"],
-  "references": [{ "path": "./tsconfig.vite-config.json" }]
+  "include": ["src"]
 }
