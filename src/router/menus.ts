@@ -5,10 +5,11 @@ export const MenuRouters: RouteRecordRaw[] = [
   {
     name: 'dashboard',
     path: '/dashboard',
-    component: MainLayout,
     redirect: '/dashboard/index',
     meta: {
+      component: 'MainLayout',
       title: '工作台',
+      icon: 'V-House',
     },
     children: [
       {
@@ -24,11 +25,11 @@ export const MenuRouters: RouteRecordRaw[] = [
   {
     name: 'system',
     path: '/system',
-    component: MainLayout,
     redirect: '/system/index',
     meta: {
+      component: 'MainLayout',
       title: '系统配置',
-      icon: '',
+      icon: 'V-Tools',
     },
     children: [
       {

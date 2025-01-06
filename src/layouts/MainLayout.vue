@@ -23,14 +23,7 @@
 </template>
 
 <script setup lang="ts">
-  // import MainHeader from './components/MainHeader.vue'
-  // import MainSlide from './components/MainSlide.vue'
-  // import MainTabbar from './components/MainTabbar.vue'
-  // import MainSlideChild from './components/MainSlideChild.vue'
-  // import MainRouter from './components/MainRouter.vue'
   import { useLayoutStore } from '@/stores/layout'
-  // import { useMenuStore } from '@/stores/menus'
-  // const menuStore = useMenuStore()
   const store = useLayoutStore()
   // menuStore.init()
   const styleVar = ref({

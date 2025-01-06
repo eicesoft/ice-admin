@@ -34,7 +34,17 @@ const baseRouters: RouteRecordRaw[] = [
   },
 ]
 
-const allRouter = [...baseRouters, ...MenuRouters]
+const generateRouters = (menus: RouteRecordRaw[]) => {
+  const result: RouteRecordRaw[] = []
+  menus.forEach((item) => {
+    if (item.meta?.component) {
+      item.component = () => import('@/layouts/' + item.meta?.component + '.vue')
+    }
+  })
+  return menus;
+}
+const generateMenuRouters = generateRouters(MenuRouters)
+const allRouter = [...baseRouters, ...generateMenuRouters]
 console.error(allRouter)
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),

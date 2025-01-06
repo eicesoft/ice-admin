@@ -13,7 +13,7 @@ const form = reactive({
 })
 
 const onSubmit = () => {
-  console.log('submit!')
+  console.log('submit!', d)
 }
 const tableData = ref([
   {
@@ -53,7 +53,7 @@ const doValidtion = (field: string) => {
 </script>
 
 <template>
-  <div>测试222</div>
+  <div>测试222221</div>
 
   <el-form ref="formRef" width="100" :model="tableData" label-width="auto">
     <el-table size="small" border :data="tableData" style="width: 100%">
@@ -77,7 +77,7 @@ const doValidtion = (field: string) => {
     </el-table>
 
     <el-form-item>
-      <el-button type="primary" @click="onSubmit">Create</el-button>
+      <el-button type="primary" @click="onSubmit">Test</el-button>
       <el-button>Cancel</el-button>
     </el-form-item>
   </el-form>

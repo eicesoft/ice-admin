@@ -8,6 +8,9 @@ import Icons from 'unplugin-icons/webpack'
 import IconsResolver from 'unplugin-icons/resolver'
 
 export default defineConfig({
+  dev: {
+    // lazyCompilation: true,
+  },
   html: {
     template: './index.html',
   },
@@ -16,8 +19,18 @@ export default defineConfig({
       index: './src/main.ts',
     },
   },
+  performance: {
+    removeConsole: true,
+    chunkSplit: {
+      strategy: 'split-by-experience',
+    },
+  },
   output: {
+    polyfill: 'usage',
     minify: true,
+    sourceMap: {
+      js: process.env.NODE_ENV === 'development' ? 'cheap-module-source-map' : false,
+    },
   },
   tools: {
     bundlerChain: (chain, { env }) => {
