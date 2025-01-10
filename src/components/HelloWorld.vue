@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { reactive, ref } from 'vue'
 const formRef = ref()
 const form = reactive({
   name: '',
@@ -13,7 +12,7 @@ const form = reactive({
 })
 
 const onSubmit = () => {
-  console.log('submit!', d)
+  console.log('submit!')
 }
 const tableData = ref([
   {
@@ -63,7 +62,14 @@ const doValidtion = (field: string) => {
       <el-table-column prop="action" width="210" label="Action">
         <template #default="scope">
           <el-form-item
-            :rules="[{ min: 3, max: 5, message: 'Length should be 3 to 5', trigger: 'blur' }]"
+            :rules="[
+              {
+                min: 3,
+                max: 5,
+                message: '测试一下中文和English,Length should be 3 to 5,Length should be 3 to 5',
+                trigger: 'blur',
+              },
+            ]"
             :prop="scope.$index + '.val'"
           >
             <el-input
@@ -92,22 +98,17 @@ const doValidtion = (field: string) => {
   position: absolute;
   top: auto !important;
   left: auto !important;
-  border: 1px solid #d47979;
-  border-radius: 4px;
-  padding: 4px 12px;
-  background-color: #faebeb;
-  right: 1px;
-  bottom: 4px;
+  background-color: #fff;
+  width: 90%;
+  right: 4px;
+  bottom: 2px;
   font-weight: 800;
-  z-index: 100;
-}
-
-:deep(.el-form-item) {
-  &:focus {
-    background-color: #d47979;
-    .el-form-item__error {
-      display: none;
-    }
-  }
+  font-size: 11px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
 }
 </style>

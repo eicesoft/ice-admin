@@ -1,7 +1,6 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router'
 import MainLayout from '@/layouts/MainLayout.vue'
 import { type RouteRecordRaw } from 'vue-router'
-import { merge } from 'lodash'
 import { MenuRouters } from './menus'
 
 const baseRouters: RouteRecordRaw[] = [
@@ -41,13 +40,13 @@ const generateRouters = (menus: RouteRecordRaw[]) => {
       item.component = () => import('@/layouts/' + item.meta?.component + '.vue')
     }
   })
-  return menus;
+  return menus
 }
 const generateMenuRouters = generateRouters(MenuRouters)
 const allRouter = [...baseRouters, ...generateMenuRouters]
-console.error(allRouter)
+// console.error(allRouter)
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: allRouter,
 })
 

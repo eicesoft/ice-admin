@@ -1,12 +1,16 @@
 <script setup lang="ts">
+import RawMdiAlarmOff from '~icons/mdi/alarm-off'
 import { useMenuStore } from '@/stores/menus'
+
 const menuStore = useMenuStore()
 menuStore.init()
 </script>
 
 <template>
   <div class="slide">
-    <div class="logo">Logo</div>
+    <div class="logo">
+      <el-icon size="32" color="#fff"><RawMdiAlarmOff /></el-icon>
+    </div>
     <div class="menus">
       <div class="menu" v-for="menu in menuStore.menus">
         <el-icon :size="18">
@@ -31,7 +35,10 @@ menuStore.init()
   background-color: #282c34;
   user-select: none;
   .logo {
-    height: 50px;
+    // height: 50px;
+    padding: 8px 0;
+    display: flex;
+    justify-content: center;
   }
   .menus {
     flex-grow: 1;
