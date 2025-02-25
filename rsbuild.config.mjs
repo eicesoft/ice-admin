@@ -74,9 +74,8 @@ export default defineConfig({
           compiler: 'vue3',
           autoInstall: true,
         }),
-        TurboConsole({
-          /* options here */
-        }),
+        /*TurboConsole({
+        }),*/
       ],
       resolve: {
         alias: {

@@ -7,12 +7,10 @@ import { SetupApp } from './plugins/app'
 import { SetupIcon } from './plugins/icon'
 
 import 'nprogress/nprogress.css'
-
 const app = createApp(App)
 
 SetupApp(app)
 SetupRouter(app)
 SetupPinia(app)
 SetupIcon(app)
-
 app.mount('#app')

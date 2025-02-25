@@ -44,6 +44,9 @@
         <RouterLink to="/issues">issues</RouterLink>
         <RouterLink to="/setting">setting</RouterLink>
         <RouterLink to="/test">test</RouterLink>
+        <RouterLink to="/dashboard/index">DashBoard</RouterLink>
+        <RouterLink to="/vtable">VTable</RouterLink>
+
       </nav>
     </div>
     <div class="header-right">

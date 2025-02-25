@@ -29,6 +29,11 @@ const baseRouters: RouteRecordRaw[] = [
         name: 'test',
         component: () => import('@/pages/TestView.vue'),
       },
+      {
+        path: '/vtable',
+        name: 'vtable',
+        component: () => import('@/pages/VTableView.vue'),
+      },
     ],
   },
 ]
